@@ -45,8 +45,8 @@
           <tbody>
             <tr>
               <th><%= current_user.books.where('created_at > ?', Date.today).count %></th>
-              <th><%= current_user.books.where('created_at > ?', Time.).count %></th>
-              <th>すうじ</th>
+              <th><%= current_user.books.where('created_at > ?', DateTime.now-1).count %></th>
+              <th><%= current_user.books.where('created_at > ?', {DateTime.now-1} - {Date.today}).count %></th>
             </tr>
           </tbody>
           <thead>
