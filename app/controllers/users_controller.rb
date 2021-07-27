@@ -39,6 +39,15 @@ class UsersController < ApplicationController
       render :edit
     end
   end
+  
+  def search
+    @user = User.find(params[:id])
+    @books = @user.books
+    @users = User.where('created_at LIKE(?)', "%#{params[:keyword]}%") #paramsとして送られてきたkeyword（入力された語句）で、Userモデルのnameカラムを検索し、その結果を@usersに代入する
+    respond_to do |format| 
+      format.json { render 'show', json: @users } #json形式のデータを受け取ったら、@usersをデータとして返す そしてshowをrenderで表示する
+    end
+  end
 
   private
 
