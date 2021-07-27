@@ -32,6 +32,7 @@
     </tbody>
   </table>
       
+  <!--日別投稿数-->
   <div class="user_show_margin">
   <h3>投稿数の前日比・前週比</h3>
   <div class = "table_width">
@@ -86,6 +87,7 @@
   </table>
   </div>
   
+  <!--過去７日間の投稿-->
   <div class="user_show_margin">
    <h3>過去７日分の投稿数</h3>
    <table class="table table-bordered table_width">
@@ -112,7 +114,28 @@
        </tr>
      </tbody>
    </table>
-   <%= render "users/graph" %>
+   
+  <!--非同期通信で検索-->
+    <div class="user_show_margin">
+    <h3>検索結果</h3>
+    <table class = "table table-bordered table_width">
+      <thead>
+        <tr>
+          <th>投稿数</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>　
+
+   <!--折れ線グラフ-->
+     <div class="user_show_margin">
+       <%= render "users/graph" %>
+     </div>
    </div>
   </div>
 </main>
