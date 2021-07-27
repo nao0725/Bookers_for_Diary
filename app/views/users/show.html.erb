@@ -117,20 +117,16 @@
    
   <!--非同期通信で検索-->
     <div class="user_show_margin">
-    <h3>検索結果</h3>
-    <input type=form id="form" placeholder="年月日を入れてください" style="width: 250px;"/>
-    <table class = "table table-bordered table_width">
-      <thead>
-        <tr>
-          <th>投稿数</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td id = "result"></td>
-        </tr>
-      </tbody>
-    </table>
+      <%= form_with url: user_search_path(@user), method: :get do |f| %>
+        <%= f.date_field :created_at %>
+        <%= f.submit "Search", class: "btn btn-primary" %>
+      <% end %>
+      
+      <div id = "search_result">
+        <% if @search_book.present? %>
+          <%= render "search", search_book: @search_book %>
+        <% end %>
+      </div>
     </div>　
 
    <!--折れ線グラフ-->

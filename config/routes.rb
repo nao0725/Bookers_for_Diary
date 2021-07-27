@@ -4,9 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users, only: [:index, :show, :edit, :update] do
-    collection do
-      get "search"
-    end
+    get "search" => "users#search"
   end
 
   resources :books, only: [:create, :index, :show, :destroy, :edit, :update] do
