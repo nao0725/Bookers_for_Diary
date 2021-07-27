@@ -22,7 +22,7 @@
       labels: ['6日前', '５日前', '４日前', '３日前', '２日前', '１日前', '今日'],
       datasets: [
         {
-          label: '最高気温(度）',
+          label: '投稿した本の数',
           data:
           [<%=@six_days_ago_book.count %>,　
           <%=@five_days_ago_book.count %> ,
@@ -32,7 +32,7 @@
           <%=@yesterday_book.count %>,
           <%=@today_book.count %>
           ],
-          borderColor: "rgba(50,240,0,1",
+          borderColor: "rgba(50,255,0,1",
           backgroundColor: "rgba(0,0,0,0)"
         },
       ],
@@ -41,7 +41,7 @@
     // グラフのオプションをつける設定
     options: {
       title: {
-        display: false,
+        display: true,
         text: '７日間の本の投稿数'
       },
       scales: {
@@ -49,9 +49,9 @@
           ticks: {
             suggestedMax: 10,
             suggestedMin: 0,
-            stepSize: 10,
+            stepSize: 1,
             callback: function(value, index, values){
-              return  value +  '回'
+              return  value
             }
           }
         }]
